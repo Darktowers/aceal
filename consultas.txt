@@ -1,0 +1,5 @@
+SELECT sedes.nombre_sede,estudiantes.nombres,grado FROM `estudiantes`,`sedes` WHERE sedes.id = estudiantes.id_sede 
+
+
+
+SELECT notas_estudiante.id_materia,estudiantes.nombres,grado,docentes.nombre_docente FROM `estudiantes`,`notas_estudiante`,`docentes` WHERE notas_estudiante.id_materia = estudiantes.id = docentes.nombre_docente
