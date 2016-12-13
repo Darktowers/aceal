@@ -8,54 +8,53 @@ if (isset($_SESSION['id']))
 }
 else
 {
-	echo '<script> window.location="principal.php"; </script>';
+	echo '<script> window.location="index.php"; </script>';
 }
 
 $profile = $_SESSION['id'];
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-	<link rel="stylesheet" type="text/css" href="estilo/diseño.css">
-	<meta charset="utf-8"/>
-	<title>Estudiante</title>
-</head>
-<body>
-<form class="formulario7">
+<?php
+include_once("header.php");
+?>
+<div class="container-abso">
+
 	<h3>Bienvenidó estudiante</h3>
-	<table border="3">
+	<div class="container-card">
+	<table>
 		<tr>
 			<td colspan="6">Datos Estudiante</td>
 		</tr>
 		<tr>
-			<td>Id</td>
-			<td>cedula</td>
-			<td>Nombres</td>
-			<td>Apellidos</td>
-			<td>Grado</td>
-			<td>Sede</td>
-			<td>nombre materia</td>
-			<td>Nota</td>
-			<td>nombre docente</td>
+
+			<th>cedula</th>
+			<th>Nombres</th>
+			<th>Apellidos</th>
+			<th>Grado</th>
+			<th>Sede</th>
+
 
 		</tr>
 		<?php
-		$resultado = mysql_query("SELECT * FROM estudiantes WHERE cedula = '".$profile."'");
-		while ($row = mysql_fetch_array($resultado)) 
+		 
+		$resultado = mysqli_query($mysql,"SELECT sedes.nombre_sede,estudiantes.nombres,grado,cedula,apellidos FROM `estudiantes`,`sedes` WHERE sedes.id = estudiantes.id_sede AND cedula = '".$profile."'");
+		while ($row = mysqli_fetch_array($resultado)) 
 		{ ?>
 			<tr>
-				<td><?php echo $row["id"]?></td>
 				<td><?php echo $row["cedula"]?></td>
 				<td><?php echo $row["nombres"]?></td>
 				<td><?php echo $row["apellidos"]?></td>
 				<td><?php echo $row["grado"]?></td>
-				<td><?php echo $row["id_sede"]?></td>       
+				<td><?php echo $row["nombre_sede"]?></td>       
 			</tr>
 		<?php
 		}
 		?>
 	</table> 
-</form>
-<a href="salir.php"><button>Salir</button>
-</body>
-</html>
+<a href="salir.php"><button class="btn-normal b_azul">Salir</button>
+</div>
+</div>
+
+
+<?php
+include_once("footer.php");
+?>

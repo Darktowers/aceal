@@ -1,0 +1,231 @@
+@import "core/mixins.styl"
+@import "core/theme.styl"
+
+.c_orange
+	color naranja !important
+.btn-orange
+	display block
+	padding 7px 10px
+	background naranja
+	color c_white
+	font-size 14px
+	line-height 1.2em
+	text-align center
+	margin-bottom 5px
+	border-radius 15px
+	cursor pointer
+	transition(all .5s ease)
+	&:hover
+		color naranja
+		background rgba(0, 0, 0, 0)
+		border 1px solid naranja
+		transition(all .5s ease)
+.module-box-green
+	padding 0 1.2em
+.box-green
+	width 50%
+	height 288px
+	display inline-block
+	padding 10px
+	position relative
+	vertical-align top
+	.content-green
+		width 100%
+		display block
+		position relative
+		border-radius 10px
+		background rgb(27,101,102)
+		background -moz-linear-gradient(-45deg,  rgba(27,101,102,1) 0%, rgba(27,101,102,1) 50%, rgba(3,82,84,1) 51%, rgba(3,82,84,1) 100%)
+		background -webkit-linear-gradient(-45deg,  rgba(27,101,102,1) 0%,rgba(27,101,102,1) 50%,rgba(3,82,84,1) 51%,rgba(3,82,84,1) 100%)
+		background linear-gradient(135deg,  rgba(27,101,102,1) 0%,rgba(27,101,102,1) 50%,rgba(3,82,84,1) 51%,rgba(3,82,84,1) 100%)
+		filter unquote("progid:DXImageTransform.Microsoft.gradient( startColorstr='#1b6566', endColorstr='#035254',GradientType=1 )")
+		color c_white
+	.text-box
+		display block
+		padding 30px
+		text-align left
+		h2
+			font-family Dosis
+			font-weight bold
+			font-size 18px
+			line-height 1.2em
+			margin 0
+		p
+			font-family Dosis
+			font-weight lighter
+			font-size 16px
+			line-height 1.2em
+			margin 0
+		ul
+			margin 0
+			padding 0
+			list-style none 
+			margin-top 20px
+			width 100%
+			max-width 320px
+			li
+				display block
+				font-family dosis
+				font-weight bold
+				margin-bottom 20px	
+				padding-left 25px
+				position relative
+				&:before
+					content '\e830'
+					position absolute
+					top 3px
+					left 0
+					display inline-block
+					font-family 'fontello'
+					font-size 16px
+					line-height 1.2em
+					color c_white		
+	.box-btns
+		position absolute
+		bottom 30px
+		right 30px
+.module-acordeon
+	display block
+	width 100%
+	padding-bottom 30px
+.title-acordeon
+	font-family Dosis
+	font-weight bold
+	font-size 28px
+	line-height 1.2em
+	padding 15px
+	border-bottom 1px solid verde
+	position relative
+	cursor pointer
+	&:after
+		position absolute
+		top 30px
+		right 15px
+		content '\e812'
+		font-family 'fontello'
+		font-size 20px
+		line-height 1.2em 
+		color verde
+		transform rotate(0deg)
+		transition(all .5s ease)
+	&.active
+		&:after
+			transform rotate(180deg)
+			transition(all .5s ease)
+.content-acordeon
+	display none
+	width 100%
+	padding 40px
+	.content-image
+		width 100%
+		display block
+		img
+			width 100%
+			display block
+			margin-bottom 1.5em
+	.text-container
+		padding-left 0
+	table
+		width 100%
+		text-align center
+		margin-bottom 40px
+	.name
+		text-align left
+		width 40%
+	tbody
+		width 100%
+		td
+			padding 5px
+			border-bottom 1px solid verdeClaro
+			.quad
+				margin 0 5px
+				&:before
+					content ''
+					display inline-block
+					width 7px
+					height 7px
+					background naranja
+					margin-bottom 2px
+			.triangle
+				margin 0 5px
+				&:before
+					content ''
+					display inline-block
+					width 0
+					height 0
+					border-left 4px solid transparent
+					border-right 4px solid transparent
+					border-bottom 8px solid naranja
+					margin-bottom 2px
+	tfoot
+		color naranja
+		font-family Dosis
+		font-weight bold
+	.box-indicators
+		width 100%
+		display block
+		margin-top 40px
+		padding-bottom 60px
+		.left
+			width 50%
+			display inline-block
+			font-family Dosis
+			font-weight lighter
+			font-size 16px
+			line-height 1.2em
+			text-align left
+			color naranja
+			span
+				display block
+				.square
+					margin-right 5px
+					&:before
+						content ''
+						display inline-block
+						width 7px
+						height 7px
+						background naranja
+						margin-bottom 2px
+				.triangle
+					margin-right 5px
+					&:before
+						content ''
+						display inline-block
+						width 0
+						height 0
+						border-left 4px solid transparent
+						border-right 4px solid transparent
+						border-bottom 8px solid naranja
+						margin-bottom 2px
+		.right
+			width 50%
+			display inline-block
+			font-family Dosis
+			font-weight lighter
+			font-size 16px
+			line-height 1.2em
+			text-align right
+			color verde
+			span
+				display block
+				.circle
+					margin-right 5px
+					&:after
+						content ''
+						display inline-block
+						width 7px
+						height 7px
+						border-radius 50%
+						background verde
+						margin-bottom 2px
+				.equis
+					margin-right 5px
+					&:after
+						content 'x'
+						font-family Dosis
+						font-weight bold
+						font-style normal
+						display inline-block
+						font-size 20px
+						line-height 1.2em
+			

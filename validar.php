@@ -14,9 +14,9 @@
 			{
 			$usuario = $_POST['user'];
 			$pass = $_POST['password'];
-			$log = mysql_query("SELECT * FROM docentes WHERE user='$usuario' AND password='$pass'");
-			if (mysql_num_rows($log)>0){
-				$row = mysql_fetch_array($log);
+			$log = mysqli_query($mysql,"SELECT * FROM docentes WHERE cedula='$usuario' AND password='$pass'");
+			if (mysqli_num_rows($log)>0){
+				$row = mysqli_fetch_array($log);
 				$_SESSION["user"] = $row['user'];
 				echo "Iniciando sesion para " .$_SESSION['user'].' <p>';
 				echo '<script> window.location="docente.php"; </script>'; 	
