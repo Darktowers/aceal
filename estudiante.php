@@ -14,13 +14,19 @@ else
 $profile = $_SESSION['id'];
 ?>
 <?php
-include_once("header.php");
+include_once("header.php");	 
+$resultadox = mysqli_query($mysql,"SELECT * FROM estudiantes WHERE  cedula = '".$profile."'");
+while ($row = mysqli_fetch_array($resultadox)) 
+{
+	$nombre = $row["nombres"];
+	$id = $row["id"];
+}
 ?>
 <div class="container-abso">
 
-	<h3>Bienvenidó estudiante</h3>
+	<h1>Bienvenidó <b><?=$nombre ?></b></h1>
 	<div class="container-card">
-	<table>
+	<table class="datos_estudiante">
 		<tr>
 			<td colspan="6">Datos Estudiante</td>
 		</tr>
@@ -50,6 +56,34 @@ include_once("header.php");
 		}
 		?>
 	</table> 
+	<button class="btn-normal b_azul notas">Ver Notas</button>
+	
+		<table class="notas_estudiante">
+		<tr>
+			<td colspan="6">Notas Estudiante</td>
+		</tr>
+		<tr>
+			<th>Profesor</th>
+			<th>Materia</th>
+			<th>Semestre</th>
+			<th>Nota</th>
+		</tr>
+		<?php
+		 
+		$resultado = mysqli_query($mysql,"SELECT materias.nombre_materia,estudiantes.nombres,docentes.nombre_docente,nota,semestre FROM `estudiantes`,`materias`,`docentes`,`notas_estudiante` WHERE notas_estudiante.id_estudiante = estudiantes.id AND notas_estudiante.id_materia = materias.id AND notas_estudiante.id_docente = docentes.id_docente AND id_estudiante = '".$id."' ORDER BY semestre");
+		while ($row = mysqli_fetch_array($resultado)) 
+		{ ?>
+			<tr>
+				<td><?php echo $row["nombre_docente"]?></td>
+				<td><?php echo $row["nombre_materia"]?></td>
+				<td><?php echo $row["semestre"]?></td> 
+				<td><?php echo $row["nota"]?></td>        
+			</tr>
+		<?php
+		}
+		?>
+	</table> 
+	<button class="btn-normal b_azul datos">Ver Datos</button>
 <a href="salir.php"><button class="btn-normal b_azul">Salir</button>
 </div>
 </div>

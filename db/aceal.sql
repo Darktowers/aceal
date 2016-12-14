@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 3.3.9
+-- version 4.2.11
 -- http://www.phpmyadmin.net
 --
--- Servidor: localhost
--- Tiempo de generación: 13-12-2016 a las 01:52:30
--- Versión del servidor: 5.5.8
--- Versión de PHP: 5.3.5
+-- Host: 127.0.0.1
+-- Generation Time: Dec 14, 2016 at 03:55 AM
+-- Server version: 5.6.21
+-- PHP Version: 5.6.3
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -16,27 +17,26 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Base de datos: `aceal`
+-- Database: `aceal`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `docentes`
+-- Table structure for table `docentes`
 --
 
 CREATE TABLE IF NOT EXISTS `docentes` (
-  `id_docente` int(15) NOT NULL AUTO_INCREMENT,
+`id_docente` int(15) NOT NULL,
   `cedula` int(10) NOT NULL,
   `user` varchar(50) NOT NULL,
   `password` varchar(30) NOT NULL,
   `nombre_docente` varchar(200) NOT NULL,
-  `ape_docente` varchar(200) NOT NULL,
-  PRIMARY KEY (`id_docente`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+  `ape_docente` varchar(200) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
--- Volcar la base de datos para la tabla `docentes`
+-- Dumping data for table `docentes`
 --
 
 INSERT INTO `docentes` (`id_docente`, `cedula`, `user`, `password`, `nombre_docente`, `ape_docente`) VALUES
@@ -46,11 +46,11 @@ INSERT INTO `docentes` (`id_docente`, `cedula`, `user`, `password`, `nombre_doce
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `estudiantes`
+-- Table structure for table `estudiantes`
 --
 
 CREATE TABLE IF NOT EXISTS `estudiantes` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+`id` int(11) NOT NULL,
   `cedula` varchar(100) NOT NULL,
   `nombres` varchar(60) NOT NULL,
   `apellidos` varchar(50) NOT NULL,
@@ -58,12 +58,11 @@ CREATE TABLE IF NOT EXISTS `estudiantes` (
   `correo` varchar(50) NOT NULL,
   `direccion` varchar(50) NOT NULL,
   `grado` varchar(3) NOT NULL,
-  `id_sede` int(10) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT AUTO_INCREMENT=11 ;
+  `id_sede` int(10) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 --
--- Volcar la base de datos para la tabla `estudiantes`
+-- Dumping data for table `estudiantes`
 --
 
 INSERT INTO `estudiantes` (`id`, `cedula`, `nombres`, `apellidos`, `telefono`, `correo`, `direccion`, `grado`, `id_sede`) VALUES
@@ -78,69 +77,69 @@ INSERT INTO `estudiantes` (`id`, `cedula`, `nombres`, `apellidos`, `telefono`, `
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `materias`
+-- Table structure for table `materias`
 --
 
 CREATE TABLE IF NOT EXISTS `materias` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+`id` int(11) NOT NULL,
   `nombre_materia` varchar(150) COLLATE utf8_spanish2_ci NOT NULL,
-  `Nota` float NOT NULL,
-  `descripcion` text COLLATE utf8_spanish2_ci NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci AUTO_INCREMENT=30 ;
+  `descripcion` text COLLATE utf8_spanish2_ci NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 --
--- Volcar la base de datos para la tabla `materias`
+-- Dumping data for table `materias`
 --
 
-INSERT INTO `materias` (`id`, `nombre_materia`, `Nota`, `descripcion`) VALUES
-(1, 'fisica', 3.7, 'aceptable'),
-(2, 'matematicas', 4.6, 'destacado'),
-(4, 'sociales', 2.8, 'insuficiente'),
-(8, 'sociales', 2.9, 'insuficiente');
+INSERT INTO `materias` (`id`, `nombre_materia`, `descripcion`) VALUES
+(1, 'Fisica', ''),
+(2, 'Matematicas', ''),
+(3, 'Sociales', ''),
+(4, 'Etica', ''),
+(5, 'Español', ''),
+(6, 'Quimica', ''),
+(7, 'Ingles', ''),
+(8, 'Filosofia', '');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `notas_estudiante`
+-- Table structure for table `notas_estudiante`
 --
 
 CREATE TABLE IF NOT EXISTS `notas_estudiante` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+`id` int(11) NOT NULL,
   `id_estudiante` int(10) NOT NULL,
   `id_materia` int(10) NOT NULL,
   `id_docente` int(10) NOT NULL,
-  `Comentarios` varchar(200) COLLATE utf8_spanish2_ci NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `id_estudiante` (`id_estudiante`),
-  KEY `id_materia` (`id_materia`),
-  KEY `id_docente` (`id_docente`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci AUTO_INCREMENT=2 ;
+  `nota` int(5) NOT NULL,
+  `semestre` varchar(2) COLLATE utf8_spanish2_ci NOT NULL,
+  `Comentarios` varchar(200) COLLATE utf8_spanish2_ci NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 --
--- Volcar la base de datos para la tabla `notas_estudiante`
+-- Dumping data for table `notas_estudiante`
 --
 
-INSERT INTO `notas_estudiante` (`id`, `id_estudiante`, `id_materia`, `id_docente`, `Comentarios`) VALUES
-(1, 1, 1, 2, '');
+INSERT INTO `notas_estudiante` (`id`, `id_estudiante`, `id_materia`, `id_docente`, `nota`, `semestre`, `Comentarios`) VALUES
+(2, 1, 2, 1, 5, '1', 'Exelente'),
+(3, 1, 3, 2, 4, '2', ''),
+(4, 1, 8, 1, 5, '1', '');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `sedes`
+-- Table structure for table `sedes`
 --
 
 CREATE TABLE IF NOT EXISTS `sedes` (
-  `id` int(12) NOT NULL AUTO_INCREMENT,
+`id` int(12) NOT NULL,
   `nombre_sede` varchar(200) NOT NULL,
   `telefono` text NOT NULL,
-  `direccion` text NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `nombre_sede` (`nombre_sede`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
+  `direccion` text NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 --
--- Volcar la base de datos para la tabla `sedes`
+-- Dumping data for table `sedes`
 --
 
 INSERT INTO `sedes` (`id`, `nombre_sede`, `telefono`, `direccion`) VALUES
@@ -156,19 +155,80 @@ INSERT INTO `sedes` (`id`, `nombre_sede`, `telefono`, `direccion`) VALUES
 (10, 'san_martin', '2562331', 'carrera 40 calle 1');
 
 --
--- Filtros para las tablas descargadas (dump)
+-- Indexes for dumped tables
 --
 
 --
--- Filtros para la tabla `materias`
+-- Indexes for table `docentes`
+--
+ALTER TABLE `docentes`
+ ADD PRIMARY KEY (`id_docente`);
+
+--
+-- Indexes for table `estudiantes`
+--
+ALTER TABLE `estudiantes`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `materias`
 --
 ALTER TABLE `materias`
-  ADD CONSTRAINT `materias_ibfk_1` FOREIGN KEY (`id`) REFERENCES `estudiantes` (`id`);
+ ADD PRIMARY KEY (`id`);
 
 --
--- Filtros para la tabla `notas_estudiante`
+-- Indexes for table `notas_estudiante`
 --
 ALTER TABLE `notas_estudiante`
-  ADD CONSTRAINT `notas_estudiante_ibfk_3` FOREIGN KEY (`id_docente`) REFERENCES `docentes` (`id_docente`),
-  ADD CONSTRAINT `notas_estudiante_ibfk_1` FOREIGN KEY (`id_estudiante`) REFERENCES `estudiantes` (`id`),
-  ADD CONSTRAINT `notas_estudiante_ibfk_2` FOREIGN KEY (`id_materia`) REFERENCES `materias` (`id`);
+ ADD PRIMARY KEY (`id`), ADD KEY `id_estudiante` (`id_estudiante`), ADD KEY `id_materia` (`id_materia`), ADD KEY `id_docente` (`id_docente`);
+
+--
+-- Indexes for table `sedes`
+--
+ALTER TABLE `sedes`
+ ADD PRIMARY KEY (`id`), ADD KEY `nombre_sede` (`nombre_sede`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `docentes`
+--
+ALTER TABLE `docentes`
+MODIFY `id_docente` int(15) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `estudiantes`
+--
+ALTER TABLE `estudiantes`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
+--
+-- AUTO_INCREMENT for table `materias`
+--
+ALTER TABLE `materias`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
+--
+-- AUTO_INCREMENT for table `notas_estudiante`
+--
+ALTER TABLE `notas_estudiante`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `sedes`
+--
+ALTER TABLE `sedes`
+MODIFY `id` int(12) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `notas_estudiante`
+--
+ALTER TABLE `notas_estudiante`
+ADD CONSTRAINT `notas_estudiante_ibfk_1` FOREIGN KEY (`id_estudiante`) REFERENCES `estudiantes` (`id`),
+ADD CONSTRAINT `notas_estudiante_ibfk_2` FOREIGN KEY (`id_materia`) REFERENCES `materias` (`id`),
+ADD CONSTRAINT `notas_estudiante_ibfk_3` FOREIGN KEY (`id_docente`) REFERENCES `docentes` (`id_docente`);
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
