@@ -8,7 +8,7 @@ include_once("header.php");
 			<img src="img/aceal.png" alt="">
 			<img src="img/genesis.png" alt="">
 			<img src="img/lepanto.png" alt="">
-			<img src="img/aceal.png" alt="">
+			<img src="img/romega.png" alt="">
 		</div>
 		<div class="button-cont">
 			<div class="btn-normal b_azul b_estudiante">Soy Estudiante</div>
