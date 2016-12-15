@@ -1,6 +1,14 @@
 (function ($) {
 
 	jQuery(document).ready(function ($) {
+		$(".notas").on("click",function(){
+			$(".datos-estu").slideUp();
+			$(".notas-estu").slideDown();
+		});
+		$(".datos").on("click",function(){
+			$(".datos-estu").slideDown();
+			$(".notas-estu").slideUp();
+		});
 		$(".desp").hover(
 			function () {
 				$(".back-desp").stop().slideDown();

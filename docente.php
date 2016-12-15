@@ -12,43 +12,27 @@ else
 }
 
 $profile = $_SESSION['user'];
+include_once("header.php");	 
+$resultadox = mysqli_query($mysql,"SELECT * FROM docentes WHERE  cedula = '".$profile."'");
+while ($row = mysqli_fetch_array($resultadox)) 
+{
+	$nombre = $row["nombre_docente"];
+	$id = $row["id_docente"];
+}
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-	<link rel="stylesheet" type="text/css" href="estilo/diseño.css">
-	<meta charset="utf-8"/>
-	<script src="ingreso.js"></script>
-	<title>Ingreso Principal</title>
-</head>
-<body>
-<form class="formulario4">
-	<center><h1>Bienvenido a Aceal APP</h1></center>
-	<hr></hr>
-	<form>
-	<input type="button" name="reg_nota" value="Registrar Notas" onclick="window.location='Reg_materias.php'"></input>
-	</form>
-	<br>
-	<form class="formulario3">
-		<input type="button" name="reg_estu" value="Registrar Estudiante" onclick="window.location='Reg_estudiantes.php'"></input>
-	</form>
-</body>
-<hr></hr>
-<body>
-	<form action="eliminar.php" method="POST" class="formulario5">
-		Id: <input type="text" name="id"><br></br>
-		<input type="submit" value="Eliminar Registro" name="eliminar">
-	</form>
-</body>
-<hr></hr>
-<body>
-	<form action="materias.php" method="POST">
-		<input type="submit" value="materias" onclick="window.location='materias.php'" />
-	</form>
-</body>
-<hr></hr>
-<body>
-	<a href="salir.php"><button>Salir</button></center>
-</body>
-</form>
-</html>
+<div class="container-abso">
+
+	<h1>Bienvenidó <b><?=$nombre ?></b></h1>
+	<div class="container-card">
+
+	<a href="Reg_materias.php" class="btn-normal b_azul">notas</a> 
+	<a href="Reg_estudiantes.php" class="btn-normal b_azul">estudiantes</a> 
+
+
+</div>
+</div>
+
+
+<?php
+include_once("footer.php");
+?>

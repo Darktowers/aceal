@@ -54,11 +54,9 @@ body
 			flex-wrap: wrap;
 			img
 				width: 128px;
-		form
-			display: none
 .btn-normal
 	padding: 1em;
-	color: white;
+	color: white !important
 	min-width: 138px;
 	text-align: center;
 	margin: .5em;
@@ -119,5 +117,23 @@ body
 			margin: 1em 0;
 		input[type=submit]
 			width: 47%;
-
-
+.form
+	background: white;
+	padding: 1em;
+	min-height: 300px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	input[type=text]
+	input[type=email]
+	input[type=password]
+	textarea
+		resize: none
+		padding: .8em 1em;
+		font-weight: lighter;
+		margin: 1em 0;
+	input[type=submit]
+		width: 47%;
+.wrap
+	display: flex

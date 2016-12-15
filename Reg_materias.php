@@ -11,37 +11,42 @@ else
 	echo '<script> window.location="principal.php"; </script>';
 }
 $profile = $_SESSION['user'];
+include_once("header.php");	 
+$resultadox = mysqli_query($mysql,"SELECT * FROM docentes WHERE  cedula = '".$profile."'");
+while ($row = mysqli_fetch_array($resultadox)) 
+{
+	$nombre = $row["nombre_docente"];
+	$id = $row["id_docente"];
+}
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8" />
-	<link rel="stylesheet" href="estilo/diseño.css">
-	<title>Registro Notas</title>
-</head>
-<body>
-<form name="Guardar Notas" method="POST" action="guardar_notas.php" class="formulario6">
-<h2>Ingresar Notas Estudiantes</h2>
-	<table>
-		<tr>
-			<td>id Estudiante:</td>
-			<td><input type="text" name="id_estudiante" maxlength="12" placeholder="ingrese id"></td>
-		</tr>
-		<tr>
-			<td>Nombre Materia:</td>
-			<td><input type="text" name="nombre_materia" placeholder="ingrese nombre"></td>
-		</tr>
-		<tr>
-			<td>Nota:</td>
-			<td><input type="text" name="nota" placeholder="ingrese nota"></td>
-		</tr>
-		<tr>
-			<td>Descripción:</td>
-			<td><input type="text" name="descripción" placeholder="ingrese descripción"></td>
-		</tr>
-	</table>
-	<input type="submit" name="guardar notas" value="guardar notas">
-</form>
-<input type="submit" name="Regresar" value="Regresar" onclick="window.location='docente.php'">
-</body>
-</html>
+<div class="container-abso">
+	<h1>Bienvenidó <b><?=$nombre ?></b></h1>
+	<div class="container-card">
+		<form name="Guardar Notas" method="POST" action="guardar_notas.php" class="formulario6 form">
+		<center>
+			<h5>Ingresar Notas Estudiantes</h5>
+		</center>
+
+					<input type="text" name="id_estudiante" maxlength="12" placeholder="Cedula">
+				
+				
+				
+					<input type="text" name="nombre_materia" placeholder="Nombres">
+				
+				
+				
+					<input type="text" name="nota" placeholder="Nota">
+				
+				
+					
+					<textarea name="descripción" placeholder="ingrese descripción"></textarea>
+				
+			</table>
+			<input type="submit" class="btn-normal b_azul" value="guardar notas">
+		</form>
+		<a class="btn-normal b_azul" href="docente.php">Volver</a>
+</div>
+</div>
+<?php
+include_once("footer.php");
+?>

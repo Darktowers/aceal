@@ -26,6 +26,7 @@ while ($row = mysqli_fetch_array($resultadox))
 
 	<h1>Bienvenidó <b><?=$nombre ?></b></h1>
 	<div class="container-card">
+	<div class="datos-estu">
 	<table class="datos_estudiante">
 		<tr>
 			<td colspan="6">Datos Estudiante</td>
@@ -57,7 +58,8 @@ while ($row = mysqli_fetch_array($resultadox))
 		?>
 	</table> 
 	<button class="btn-normal b_azul notas">Ver Notas</button>
-	
+	</div>
+	<div class="notas-estu" style="display:none">
 		<table class="notas_estudiante">
 		<tr>
 			<td colspan="6">Notas Estudiante</td>
@@ -84,6 +86,8 @@ while ($row = mysqli_fetch_array($resultadox))
 		?>
 	</table> 
 	<button class="btn-normal b_azul datos">Ver Datos</button>
+	</div>	
+	
 <a href="salir.php"><button class="btn-normal b_azul">Salir</button>
 </div>
 </div>
