@@ -31,6 +31,20 @@ while ($row = mysqli_fetch_array($resultadox))
 			<input type="text" name="correo" placeholder="ingrese correo" required>
 			<input type="text" name="direccion" placeholder="ingrese direccion" required>
 			<input type="text" name="grado" placeholder="ingrese carrera" required>
+			<select name="sedes" id="">
+				<option selected value="">Seleccione SEDE</option>
+				<?php 
+					$resultadox = mysqli_query($mysql,"SELECT * FROM sedes");
+					while ($row = mysqli_fetch_array($resultadox)) 
+					{
+						$nombre = $row["nombre_sede"];
+						$id = $row["id"];
+						?>
+						<option value="<?=$id?>"><?=$nombre?></option>
+<?php
+					}
+				?>
+			</select>
 	<div class="wrap">
 		<input type="submit" class="btn-normal b_azul" name="guardar" value="Guardar">
 		<input type="submit" class="btn-normal b_azul" value="Regresar" onclick="window.location='docente.php'">

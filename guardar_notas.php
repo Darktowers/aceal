@@ -1,30 +1,24 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8"/>
-	<title>Guardar Notas</title>
-</head>
-<body>
-	<?php
-		$servidor = "localhost";
-		$usuario = "root";
-		$contraseña = "";
-		$bd = "aceal";
-
-		$conexion = mysqli_connect($servidor, $usuario, $contraseña, $bd)
-			or die ("Error en la conexion");
+<?php
+if($_POST){
+	include_once("header.php");	 
+?>
+<div class="container-abso">
+	<div class="container-card">
+<?php
+	include 'conect.php';
 
 		$id= $_POST['id_estudiante'];
 		$nombre_materia = $_POST['nombre_materia'];
 		$nota = $_POST['nota'];
+		$semestre = $_POST['semestre'];
 		$descripcion = $_POST['descripción'];
 
-		$insertar = "INSERT INTO materias VALUES ('$id', '$nombre_materia', '$nota', '$descripcion')";
+		$insertar = "INSERT INTO notas_estudiante VALUES (null,'$id', '$nombre_materia', '$nota', '$descripcion')";
 
-		$resultado = mysqli_query($conexion, $insertar)
+		$resultado = mysqli_query($mysql, $insertar)
 			or die ("Error al insertar los registros");
 
-		mysqli_close($conexion); 
+		mysqli_close($mysql); 
 		echo "Los datos fueron ingresados correctamente";
 	?>
 	<br><br>

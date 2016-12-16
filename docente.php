@@ -8,7 +8,7 @@ if (isset($_SESSION['user']))
 }
 else
 {
-	echo '<script> window.location="principal.php"; </script>';
+	echo '<script> window.location="index.php"; </script>';
 }
 
 $profile = $_SESSION['user'];

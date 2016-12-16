@@ -1,18 +1,17 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8"/>
-	<title>Guardar</title>
-</head>
-<body>
-	<?php
-		$servidor = "localhost";
-		$usuario = "root";
-		$contraseña = "";
-		$bd = "aceal";
 
-		$conexion = mysqli_connect($servidor, $usuario, $contraseña, $bd)
-			or die ("Error en la conexion");
+
+
+<?php
+if($_POST){
+
+
+	include_once("header.php");	 
+?>
+<div class="container-abso">
+	<div class="container-card">
+<?php
+
+	include 'conect.php';
 
 		$cedula = $_POST['cedula'];
 		$nombres = $_POST['nombre'];
@@ -22,16 +21,35 @@
 		$direccion = $_POST['direccion'];
 		$grado = $_POST['grado'];
 		$id_sede = $_POST['sedes'];
+		$test = true;
+					$resultadox = mysqli_query($mysql,"SELECT * FROM estudiantes");
+					while ($row = mysqli_fetch_array($resultadox)) 
+					{
+						$cedulax = $row["cedula"];
+						if($cedulax == $cedula){
+							echo "El estudiante ya existe";
+							$test = false;
+						}else{
+							
+						}
 
-		$insertar = "INSERT INTO estudiantes VALUES (id, '$cedula', '$nombres', '$apellidos', '$telefono', '$correo', '$direccion', '$grado', $id_sede)";
+					}
+					if($test == true){
+						$resultado = mysqli_query($mysql,"INSERT INTO estudiantes VALUES (null,'$cedula', '$nombres', '$apellidos', '$telefono', '$correo', '$direccion', '$grado', $id_sede)");
+							mysqli_close($mysql);
+							echo "Los datos fueron ingresados correctamente";
+					}
 
-		$resultado = mysqli_query($conexion, $insertar)
-			or die ("Error al insertar los registros");
 
-		mysqli_close($conexion);
-		echo "Los datos fueron ingresados correctamente";
 	?>
-	<br><br>
-	<input type="submit" name="salir" value="Regresar" onclick="window.location='docente.php'">
-</body>
-</html>
+
+
+	<input type="submit" name="salir" value="Regresar" class="btn-normal b_azul" onclick="window.location='docente.php'">
+</div>
+</div>
+<?php
+include_once("footer.php");
+}else{
+	echo '<script> window.location="docente.php"; </script>';
+}
+?>

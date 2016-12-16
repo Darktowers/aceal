@@ -33,7 +33,7 @@ while ($row = mysqli_fetch_array($resultadox))
 				
 					<input type="text" name="nombre_materia" placeholder="Nombres">
 				
-				
+					<input type="text" name="semestre" placeholder="Semestre">					
 				
 					<input type="text" name="nota" placeholder="Nota">
 				
