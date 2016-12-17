@@ -28,7 +28,7 @@ while ($row = mysqli_fetch_array($resultadox))
 			<h5>Ingresar Notas Estudiantes</h5>
 		</center>
 
-					<input type="text" name="id_estudiante" maxlength="12" placeholder="Cedula">
+					<input type="text" name="id_estudiante" maxlength="12" placeholder="Cedula" required>
 				
 				
 				
@@ -47,13 +47,13 @@ while ($row = mysqli_fetch_array($resultadox))
 										?>
 								</select>
 				
-					<input type="text" name="semestre" placeholder="Semestre">					
+					<input type="text" name="semestre" placeholder="Semestre" required>					
 				
-					<input type="text" name="nota" placeholder="Nota">
+					<input type="text" name="nota" placeholder="Nota" required>
 				
 				
 					
-					<textarea name="descripción" placeholder="ingrese descripción"></textarea>
+					<textarea name="descripción" placeholder="ingrese descripción" required></textarea>
 				
 			</table>
 			<input type="submit" class="btn-normal b_azul" value="guardar notas">

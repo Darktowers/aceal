@@ -24,7 +24,7 @@ while ($row = mysqli_fetch_array($resultadox))
 	<div class="container-card">
 	<form name="Guardar"  method="POST" action="guardar.php" class="formulario2 form">
 	<center><h5>Ingresar Estudiante</h5></center>		
-			<input type="text" name="cedula" maxlength="12" placeholder="ingrese cedula">
+			<input type="text" name="cedula" maxlength="12" placeholder="ingrese cedula" required>
 			<input type="text" name="nombre" placeholder="ingrese nombre" required>	
 			<input type="text" name="apellido" placeholder="ingrese apellido" required>
 			<input type="text" name="telefono" placeholder="ingrese telefono" required>
