@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 include 'conect.php';
 
 if (isset($_SESSION['user'])) 
@@ -31,7 +32,20 @@ while ($row = mysqli_fetch_array($resultadox))
 				
 				
 				
-					<input type="text" name="nombre_materia" placeholder="Nombres">
+								<select name="materia" id="">
+									<option selected value="">Seleccione Materia</option>
+										<?php 
+											$resultadoxy = mysqli_query($mysql,"SELECT * FROM materias");
+											while ($row = mysqli_fetch_array($resultadoxy)) 
+											{
+												$nombre = utf8_encode($row["nombre_materia"]);
+												$id = $row["id"];
+												?>
+									<option value="<?=$id?>"><?=$nombre?></option>
+										<?php
+											}
+										?>
+								</select>
 				
 					<input type="text" name="semestre" placeholder="Semestre">					
 				
