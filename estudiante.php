@@ -88,7 +88,7 @@ while ($row = mysqli_fetch_array($resultadox))
 	<button class="btn-normal b_azul datos">Ver Datos</button>
 	</div>	
 	
-<a href="salir.php"><button class="btn-normal b_azul">Salir</button>
+<a href="salir.php" class="btn-normal b_azul">Cerrar Sesion</a>
 </div>
 </div>
 

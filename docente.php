@@ -25,8 +25,14 @@ while ($row = mysqli_fetch_array($resultadox))
 	<h1>Bienvenidó <b><?=$nombre ?></b></h1>
 	<div class="container-card">
 
-	<a href="Reg_materias.php" class="btn-normal b_azul">notas</a> 
-	<a href="Reg_estudiantes.php" class="btn-normal b_azul">estudiantes</a> 
+	<a href="Reg_materias.php" class="btn-normal b_azul">Registrar notas</a> 
+	<a href="Reg_estudiantes.php" class="btn-normal b_azul">Registrar estudiantes</a>
+	<form action="update.php" class="form" method="POST">
+		<label for="">Buscar Estudiante</label>
+		<input type="text" name="cedula" placeholder="Cedula">
+		<input type="submit" class="btn-normal b_azul" value="Buscar">
+	</form> 
+	<a href="salir.php" class="btn-normal b_azul">Cerrar Sesion</a>
 
 
 </div>
