@@ -24,7 +24,7 @@
 			else
 			{
 				echo '<script> alert("Usuario y contraseña incorrectos.");</script>';
-				echo '<script> window.location="principal.php"; </script>';
+				echo '<script> window.location="index.php"; </script>';
 			}
 		}
 	?>
