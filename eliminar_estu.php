@@ -26,7 +26,7 @@ while ($row = mysqli_fetch_array($resultadox))
 ?>
 <div class="container-abso">
 
-
+<h1>Actualizacion</h1>
 	<div class="container-card">
     <?php
                     $borrar = "DELETE FROM estudiantes WHERE cedula = '".$cedula."'";

@@ -24,6 +24,7 @@ $id=$_POST["id"];
 
 ?>
 <div class="container-abso">
+    <h1>Actualizacion</h1>
 	<div class="container-card">
 		<form name="Guardar Notas" method="GET" action="notas_update.php" class="formulario6 form">
 		<center>
